@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gerador de senhas seguras e aleatórias, direto no navegador.">
+    <title>Gerador de Senhas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main class="cartao">
+        <h1><img class="logo" src="assets/logo.png" alt="Gerador de Senhas" width="745" height="60"></h1>
+
+        <!-- Senha gerada -->
+        <div class="senha-caixa">
+            <label for="senha" class="sr-only">Senha gerada</label>
+            <input id="senha" class="senha" type="text" readonly spellcheck="false" autocomplete="off"
+                title="Clique para copiar">
+            <button id="gerar" class="icone" type="button" aria-label="Gerar outra senha" title="Gerar outra senha">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 12a9 9 0 1 1-2.64-6.36" />
+                    <path d="M21 3v6h-6" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Força da senha -->
+        <div class="forca" data-nivel="0">
+            <div class="forca-barras" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <p>Força: <strong id="forca-texto" aria-live="polite"></strong></p>
+        </div>
+
+        <!-- Tamanho -->
+        <div class="campo">
+            <div class="campo-topo">
+                <label for="tamanho">Tamanho</label>
+                <output id="valor-tamanho" for="tamanho"></output>
+            </div>
+            <input id="tamanho" class="slider" type="range" min="6" max="64" value="16">
+        </div>
+
+        <!-- Tipos de caracteres -->
+        <fieldset class="opcoes">
+            <legend>Incluir</legend>
+            <label class="opcao"><input type="checkbox" name="tipo" value="maiusculas" checked> Maiúsculas <code>A-Z</code></label>
+            <label class="opcao"><input type="checkbox" name="tipo" value="minusculas" checked> Minúsculas <code>a-z</code></label>
+            <label class="opcao"><input type="checkbox" name="tipo" value="numeros" checked> Números <code>0-9</code></label>
+            <label class="opcao"><input type="checkbox" name="tipo" value="simbolos" checked> Símbolos <code>!@#$</code></label>
+            <label class="opcao opcao-larga"><input type="checkbox" id="parecidos"> Evitar caracteres parecidos <code>I l 1 O 0 o</code></label>
+        </fieldset>
+
+        <button id="copiar" class="botao" type="button">Copiar senha</button>
+
+        <p class="nota">A senha é gerada no seu navegador e não é enviada para lugar nenhum.</p>
+    </main>
+
+    <div id="aviso" class="aviso" role="status" aria-live="polite"></div>
+</body>
+
+</html>
